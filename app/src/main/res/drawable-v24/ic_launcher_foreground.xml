@@ -1,0 +1,9 @@
+ <bitmap
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         android:src="@drawable/lightning_bolt"
+         android:tint="@android:color/holo_orange_light"
+         android:gravity="center"
+         android:width="70dp"
+         android:height="70dp"
+         android:viewportHeight="70"
+         android:viewportWidth="70"/>

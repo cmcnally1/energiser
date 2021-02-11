@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              style="@style/CarFloatingCard"
+              android:layout_width="377dp"
+              android:layout_marginTop="0dp"
+              android:layout_marginBottom="0dp"
+              android:layout_gravity="top"
+              android:padding="0dp"
+              android:clickable="true" android:layout_height="wrap_content" android:id="@+id/linearLayout">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/auto_filter_layout">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/filterBackground" android:id="@+id/filter_popup_layout"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent">
+
+
+            <Button
+                    android:text="@string/reset_button_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/resetButton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/button_border" app:layout_constraintStart_toEndOf="@+id/type2Toggle"
+                    android:layout_marginStart="8dp"/>
+            <Button
+                    android:text="@string/cancel_button_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/cancelFilterButton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toStartOf="parent" android:background="@drawable/button_border"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/type2Toggle"/>
+            <SeekBar
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/connectorsSeekbar"
+                    app:layout_constraintBottom_toTopOf="@+id/showConnectors"
+                    android:max="10" android:progress="0"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@string/connectors_max_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/connectorsMax"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintBottom_toBottomOf="@+id/connectorsSeekbar"
+                    app:layout_constraintStart_toEndOf="@+id/connectorsSeekbar" android:layout_marginStart="8dp"
+                    android:textColor="@color/colorPrimaryDark"/>
+            <TextView
+                    android:text="@string/connectors_any_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/connectorsAny"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintBottom_toBottomOf="@+id/connectorsSeekbar"
+                    app:layout_constraintEnd_toStartOf="@+id/connectorsSeekbar" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@string/show_connectors_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/showConnectors" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/cancelFilterButton"/>
+            <TextView
+                    android:text="@string/connectors_info_text"
+                    android:layout_width="252dp"
+                    android:layout_height="25dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/connectorsInfo" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/connectorsSeekbar"
+                    android:textSize="14sp" app:layout_constraintHorizontal_bias="0.496"
+                    android:textAlignment="center"/>
+            <SeekBar
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/priceSeekbar"
+                    app:layout_constraintBottom_toTopOf="@+id/showPrice"
+                    android:max="1000" android:progress="1000"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@string/price_free_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/priceFree"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/priceSeekbar"
+                    app:layout_constraintEnd_toStartOf="@+id/priceSeekbar" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@string/price_any_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/priceAny"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/priceSeekbar"
+                    app:layout_constraintStart_toEndOf="@+id/priceSeekbar" android:layout_marginStart="8dp"/>
+            <TextView
+                    android:text="@string/show_price_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/showPrice" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/connectorsInfo"/>
+            <TextView
+                    android:text="@string/price_info_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/priceInfo" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/priceSeekbar" android:textSize="14sp"
+            />
+            <ToggleButton
+                    android:text="@string/show_all_text"
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/showAllToggle" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/type2Toggle"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/priceInfo"
+                    app:layout_constraintHorizontal_bias="0.51"
+                    android:textOff="@string/show_all_text"
+                    android:textOn="@string/show_all_text" android:checked="true"/>
+            <ToggleButton
+                    android:text="@string/type_2_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/type2Toggle" android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/priceInfo" android:textOff="@string/type_2_text"
+                    android:textOn="@string/type_2_text" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent"/>
+            <ToggleButton
+                    android:text="ToggleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/withinRangeToggle" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/type2Toggle"
+                    android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/priceInfo" app:layout_constraintHorizontal_bias="0.52"
+                    android:textOff="@string/within_range_text" android:textOn="@string/within_range_text"
+            />
+            <TextView
+                    android:text="@string/ev_toggle_info_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/toggleInfo" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/type2Toggle"
+                    android:textStyle="bold"/>
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="@color/colorPrimary"
+                                             android:id="@+id/autoContstraintLayout">
+
+    <android.support.design.widget.CoordinatorLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.gms.maps.MapView
+                android:id="@+id/map_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <ImageButton
+            android:id="@+id/zoom_in_button"
+            android:layout_width="@dimen/zoom_button_size"
+            android:layout_height="@dimen/zoom_button_size"
+            android:layout_above="@+id/separator"
+            android:padding="@dimen/zoom_button_padding"
+            android:elevation="@dimen/car_card_view_elevation"
+            android:background="@drawable/capsule_top"
+            android:src="@drawable/ic_zoom_in"
+            android:tint="@color/car_body1"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/separator"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+            android:id="@+id/separator"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_above="@+id/zoom_out_button"
+            android:layout_alignStart="@id/zoom_in_button"
+            android:layout_alignEnd="@id/zoom_in_button"
+            android:elevation="8dp"
+            android:outlineProvider="none"
+            android:background="@color/car_card_background"
+            android:backgroundTint="@color/car_list_divider"
+            android:backgroundTintMode="src_atop" app:layout_constraintBottom_toTopOf="@+id/zoom_out_button"
+            app:layout_constraintStart_toStartOf="@+id/zoom_out_button"
+            app:layout_constraintEnd_toEndOf="@+id/zoom_out_button"/>
+
+    <ImageButton
+            android:id="@+id/zoom_out_button"
+            android:layout_width="@dimen/zoom_button_size"
+            android:layout_height="@dimen/zoom_button_size"
+            android:layout_alignStart="@id/zoom_in_button"
+            android:layout_above="@+id/my_location_button"
+            android:layout_marginBottom="8dp"
+            android:padding="@dimen/zoom_button_padding"
+            android:elevation="@dimen/car_card_view_elevation"
+            android:background="@drawable/capsule_bottom"
+            android:src="@drawable/ic_zoom_out"
+            android:tint="@color/car_body1"
+            android:scaleType="fitCenter" app:layout_constraintBottom_toTopOf="@+id/my_location_button"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageButton
+            android:id="@+id/my_location_button"
+            android:layout_width="@dimen/my_location_button_size"
+            android:layout_height="@dimen/my_location_button_size"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:elevation="@dimen/car_card_view_elevation"
+            android:background="@drawable/disc"
+            android:src="@drawable/ic_my_location"
+            android:tint="@color/car_body1"
+            android:scaleType="center" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="4dp"/>
+
+    <!-- Transparent area where station details cards are displayed -->
+    <FrameLayout
+            android:id="@+id/charge_point_details_card"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/car_card_view_elevation"
+            tools:layout_marginTop="96dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="96dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

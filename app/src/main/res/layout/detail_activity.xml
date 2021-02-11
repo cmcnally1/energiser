@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent" android:id="@+id/detailViewLayout">
+    <android.support.design.widget.CoordinatorLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="152dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:id="@+id/smallMapLayout">
+        <!--android:fitsSystemWindows="true">  use this if the view starts to go weird and out of view-->
+
+        <fragment
+                android:id="@+id/map"
+                class="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameText" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/smallMapLayout"
+            android:textSize="24sp"
+            android:textStyle="bold" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/toggleButton" android:textColor="@color/colorPrimaryDark"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/distanceText"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameText" app:layout_constraintEnd_toStartOf="@+id/toggleButton"
+            android:layout_marginEnd="8dp" android:textColor="?attr/colorPrimary" android:textSize="18sp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/addressLine1Text" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/distanceText" android:layout_marginTop="24dp"
+            android:textColor="?attr/colorPrimary"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/postcodeText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/addressLine1Text"
+            android:textColor="?attr/colorPrimary"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/countryText"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/postcodeText" android:textColor="?attr/colorPrimary"/>
+    <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:outlineProvider="none"
+            android:elevation="0dp"
+            android:background="@color/car_card_background"
+            android:backgroundTint="@color/car_list_divider"
+            android:backgroundTintMode="src_atop"
+            app:layout_constraintBottom_toTopOf="@+id/nearby_places_text" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/countryText" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"/>
+
+    <View
+            android:id="@+id/separator2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:outlineProvider="none"
+            android:elevation="0dp"
+            android:background="@color/car_card_background"
+            android:backgroundTint="@color/car_list_divider"
+            android:backgroundTintMode="src_atop"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/placesSpinner" android:layout_marginTop="8dp"/>
+
+    <View
+            android:id="@+id/separator3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:outlineProvider="none"
+            android:elevation="0dp"
+            android:background="@color/car_card_background"
+            android:backgroundTint="@color/car_list_divider"
+            android:backgroundTintMode="src_atop"
+            app:layout_constraintBottom_toTopOf="@+id/goThereButton"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"/>
+
+    <ToggleButton
+            android:text=""
+            android:textOff=""
+            android:textOn=""
+            android:layout_width="46dp"
+            android:layout_height="43dp"
+            android:background="@drawable/button_favourite"
+            android:checked="false"
+            android:id="@+id/toggleButton" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/smallMapLayout"/>
+    <Button
+            android:text="@string/go_there_button_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/goThereButton" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            style="@style/Widget.AppCompat.Button"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="18sp" android:textStyle="bold"/>
+    <TextView
+            android:text="@string/nearby_places_text_string"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/nearby_places_text"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/countryText" android:textSize="24sp"
+            android:layout_marginTop="16dp" android:textColor="@color/colorPrimaryDark"/>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    tools:context=".DetailActivity"
+                    tools:showIn="@layout/detail_activity"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/goThereButton"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="8dp" android:layout_marginStart="8dp" android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/placesSpinner" android:id="@+id/relativeLayout">
+
+        <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerView_places"/>
+
+    </RelativeLayout>
+    <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/placesSpinner" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/nearby_places_text" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:entries="@array/place_types_array" android:background="@drawable/button_border"/>
+
+</android.support.constraint.ConstraintLayout>

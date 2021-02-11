@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Height of the statusbar gradient (1.5 times statusbar height) -->
+    <dimen name="statusbar_gradient_height">144dp</dimen>
+    <!-- Top padding for GoogleMap to avoid results being drawn under the statusbar -->
+    <dimen name="map_top_padding">96dp</dimen>
+    <!-- Map padding to provide room for map control buttons -->
+    <dimen name="map_side_padding_left">108dp</dimen>
+    <!-- Map padding value to avoid results being drawn under station details card -->
+    <dimen name="map_card_side_padding">380dp</dimen>
+
+    <!-- Size of the map markers -->
+    <dimen name="map_marker_width">48dp</dimen>
+    <dimen name="map_marker_height">48dp</dimen>
+    <dimen name="map_user_location_dot">24dp</dimen>
+    <dimen name="map_user_location_dot_radius_outer">12dp</dimen>
+    <dimen name="map_user_location_dot_radius_inner">9dp</dimen>
+
+    <!-- Dimensions related to map zoom buttons and my location button -->
+    <dimen name="zoom_button_size">72dp</dimen>
+    <dimen name="zoom_button_corner_radius">36dp</dimen>
+    <dimen name="zoom_button_padding">16dp</dimen>
+    <dimen name="zoom_button_margin_start">32dp</dimen>
+    <dimen name="my_location_button_size">80dp</dimen>
+    <dimen name="my_location_button_margin_start">28dp</dimen>
+
+    <!-- Dimensions on battery status display -->
+    <dimen name="battery_remaining_value">88dp</dimen>
+    <dimen name="battery_remaining_label">36dp</dimen>
+    <dimen name="vertical_bar_margin">24dp</dimen>
+
+    <!-- Constants used in charging station info card -->
+    <dimen name="station_details_card_width">376dp</dimen>
+    <dimen name="station_details_button_height">64dp</dimen>
+    <dimen name="station_details_button_padding">28dp</dimen>
+    <dimen name="station_details_icon_area_width">84dp</dimen>
+    <dimen name="station_details_service_icon_size">34dp</dimen>
+    <!-- Text sizes used in charging station info card -->
+    <dimen name="station_details_title">32dp</dimen>
+    <dimen name="station_details_info">26dp</dimen>
+    <dimen name="station_details_action">26dp</dimen>
+
+    <!-- Battery notification icon dimensions -->
+    <dimen name="thumbnail_size">80dp</dimen>
+    <dimen name="thumbnail_margin">8dp</dimen>
+
+    <!-- Constants used in notification panel about missing location permission -->
+    <dimen name="missing_permission_height">96dp</dimen>
+    <dimen name="missing_permission_padding_side">24dp</dimen>
+
+    <!-- Dimensions for permission activity (on phone) -->
+    <dimen name="permission_margin">24dp</dimen>
+    <dimen name="permission_top_padding">56dp</dimen>
+</resources>

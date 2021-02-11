@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="@+id/slideConstraint"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/navigation"/>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/slideConstraint" tools:layout_editor_absoluteX="90dp"
+            app:layout_constraintBottom_toTopOf="@+id/navigation"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="1.0">
+
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+                android:id="@+id/sliding_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                app:umanoPanelHeight="62dp"
+                app:umanoShadowHeight="4dp"
+                tools:layout_editor_absoluteX="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.design.widget.CoordinatorLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <!--android:fitsSystemWindows="true">  use this if the view starts to go weird and out of view-->
+
+                <fragment
+                        android:id="@+id/map"
+                        class="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+            </android.support.design.widget.CoordinatorLayout>
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_height="match_parent"
+                    android:id="@+id/innerSlideContainer"
+                    android:layout_width="match_parent">
+
+                <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="14dp"
+                        android:gravity="top"
+                        app:srcCompat="@drawable/slide_grabber"
+                        android:id="@+id/slideGrabber" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/listFragmentContainer"
+                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          app:layout_constraintTop_toTopOf="@id/slideGrabber"
+                          app:layout_constraintBottom_toBottomOf="@id/slideGrabber"
+                          app:layout_constraintStart_toStartOf="@id/slideGrabber"
+                          app:layout_constraintEnd_toEndOf="@id/slideGrabber"
+                          android:text="-"
+                          android:textColor="@color/car_grey_200"
+                          android:textStyle="bold" android:textSize="36sp" android:textAlignment="center"
+                          app:layout_constraintVertical_bias="0.6"/>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        app:layout_constraintTop_toBottomOf="@+id/slideGrabber"
+                        android:layout_height="0dp" android:id="@+id/listFragmentContainer"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                    <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/cardView"
+                            android:layout_marginTop="4dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="8dp">
+
+                        <fragment
+                                android:id="@+id/autocomplete_fragment"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:name=
+                                        "com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                        />
+
+                        <ImageView
+                                android:src="@drawable/filter_not_set"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:id="@+id/filter_button"
+                                android:layout_gravity="end"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginTop="4dp"
+                        />
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.constraint.ConstraintLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="41dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toBottomOf="@+id/cardView" android:id="@+id/buttonLayout">
+
+                        <Button
+                                android:text="@string/location_button_text"
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content" android:id="@+id/location_button"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@drawable/button_border"
+                                android:textAlignment="center"
+                                android:drawableStart="@drawable/nearby_stations"/>
+
+                        <Button
+                                android:text="@string/favourites_button_text"
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content" android:id="@+id/favourites_button"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@drawable/button_border"
+                                android:textAlignment="center"
+                                android:drawableStart="@drawable/favourite_heart"/>
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <View
+                            android:id="@+id/separator"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:outlineProvider="none"
+                            android:elevation="0dp"
+                            android:background="@color/car_card_background"
+                            android:backgroundTint="@color/car_list_divider"
+                            android:backgroundTintMode="src_atop"
+                            android:layout_marginTop="8dp"/>
+
+                    <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyclerView_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constrainedWidth="false"
+                            android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@+id/buttonLayout"/>
+
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp" app:layout_constraintBottom_toBottomOf="@+id/slideConstraint"
+            android:layout_marginTop="0dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="0dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="0dp"
+            android:id="@+id/filter_layout">
+
+        <View android:id="@+id/blocking_view"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:background="#80cacaca"
+              android:clickable="true"
+              android:focusable="true"
+              android:visibility="visible"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="0dp" android:id="@+id/hiddenCloseButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/filter_popup_layout"
+                app:layout_constraintTop_toTopOf="parent" android:visibility="visible"
+                android:background="@android:color/transparent"/>
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="319dp"
+                android:background="@color/filterBackground" android:id="@+id/filter_popup_layout"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp">
+
+
+            <Button
+                    android:text="@string/reset_button_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/resetButton"
+                    android:layout_marginBottom="4dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/button_border" app:layout_constraintStart_toEndOf="@+id/type2Toggle"
+                    android:layout_marginStart="8dp"/>
+            <Button
+                    android:text="@string/cancel_button_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/cancelFilterButton"
+                    android:layout_marginBottom="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toStartOf="parent" android:background="@drawable/button_border"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/type2Toggle"/>
+            <SeekBar
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/connectorsSeekbar"
+                    app:layout_constraintBottom_toTopOf="@+id/showConnectors"
+                    android:max="10" android:progress="0"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@string/connectors_max_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/connectorsMax"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintBottom_toBottomOf="@+id/connectorsSeekbar"
+                    app:layout_constraintStart_toEndOf="@+id/connectorsSeekbar" android:layout_marginStart="8dp"
+                    android:textColor="@color/colorPrimaryDark"/>
+            <TextView
+                    android:text="@string/connectors_any_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/connectorsAny"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintBottom_toBottomOf="@+id/connectorsSeekbar"
+                    app:layout_constraintEnd_toStartOf="@+id/connectorsSeekbar" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@string/show_connectors_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/showConnectors" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/cancelFilterButton"/>
+            <TextView
+                    android:text="@string/connectors_info_text"
+                    android:layout_width="252dp"
+                    android:layout_height="25dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/connectorsInfo" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/connectorsSeekbar"
+                    android:textSize="18sp" app:layout_constraintHorizontal_bias="0.496"
+                    android:layout_marginBottom="4dp"/>
+            <SeekBar
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/priceSeekbar"
+                    app:layout_constraintBottom_toTopOf="@+id/showPrice"
+                    android:max="1000" android:progress="1000"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@string/price_free_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/priceFree"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/priceSeekbar"
+                    app:layout_constraintEnd_toStartOf="@+id/priceSeekbar" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@string/price_any_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/priceAny"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/priceSeekbar"
+                    app:layout_constraintStart_toEndOf="@+id/priceSeekbar" android:layout_marginStart="8dp"/>
+            <TextView
+                    android:text="@string/show_price_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/showPrice" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/connectorsInfo"/>
+            <TextView
+                    android:text="@string/price_info_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/priceInfo" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/priceSeekbar" android:textSize="18sp"
+                    android:layout_marginBottom="4dp"/>
+            <ToggleButton
+                    android:text="@string/show_all_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/showAllToggle" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/type2Toggle"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="20dp" app:layout_constraintBottom_toTopOf="@+id/priceInfo"
+                    app:layout_constraintHorizontal_bias="0.51"
+                    android:textOff="@string/show_all_text"
+                    android:textOn="@string/show_all_text" android:checked="true"/>
+            <ToggleButton
+                    android:text="@string/type_2_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/type2Toggle" android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/priceInfo" android:textOff="@string/type_2_text"
+                    android:textOn="@string/type_2_text" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent"/>
+            <ToggleButton
+                    android:text="ToggleButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/withinRangeToggle" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/type2Toggle"
+                    android:layout_marginStart="8dp" android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/priceInfo" app:layout_constraintHorizontal_bias="0.52"
+                    android:textOff="@string/within_range_text" android:textOn="@string/within_range_text"
+            />
+            <TextView
+                    android:text="@string/ev_toggle_info_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/toggleInfo" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:layout_marginBottom="4dp" app:layout_constraintBottom_toTopOf="@+id/type2Toggle"
+                    android:textSize="24sp" android:textStyle="bold"/>
+        </android.support.constraint.ConstraintLayout>
+        
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
