@@ -3,6 +3,8 @@ Energiser allows users to search for charging points for their electric vehicles
 ## Motivation
 This app was created as a proof of concept project.
 ## API and SDK references
-[Open Charge Map] (https://openchargemap.org/site/develop#api) API provides charge point data.
-[Google Maps SDK] (https://developers.google.com/maps/documentation/android-sdk/overview) for map functionality.
-[Google Places API] (https://developers.google.com/places/web-service/overview) for location search functionality and nearby places data.
+[Open Charge Map](https://openchargemap.org/site/develop#api) API provides charge point data.
+
+[Google Maps SDK](https://developers.google.com/maps/documentation/android-sdk/overview) for map functionality.
+
+[Google Places API](https://developers.google.com/places/web-service/overview) for location search functionality and nearby places data.
