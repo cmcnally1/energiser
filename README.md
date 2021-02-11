@@ -8,3 +8,5 @@ This app was created as a proof of concept project.
 [Google Maps SDK](https://developers.google.com/maps/documentation/android-sdk/overview) for map functionality.
 
 [Google Places API](https://developers.google.com/places/web-service/overview) for location search functionality and nearby places data.
+
+[Sliding Up Panel](https://github.com/umano/AndroidSlidingUpPanel) library for slider to display charge points.
